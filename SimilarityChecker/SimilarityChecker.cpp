@@ -10,6 +10,25 @@ public:
 		return input1.size() == input2.size();
 	}
 
+	double getLenLonger(string input1, string input2)
+	{
+		if (input1.size() > input2.size())
+		{
+			return input1.size();
+		}
+
+		return input2.size();
+	}
+
+	double getLenShorter(string input1, string input2)
+	{
+		if (input1.size() > input2.size())
+		{
+			return input2.size();
+		}
+		return input1.size();
+	}
+
 	int getLengthPoint(string input1, string input2)
 	{
 		if (isLengthSame(input1, input2))
@@ -19,24 +38,12 @@ public:
 			(input2.size() >= input1.size() * 2))
 			return 0;
 
-		double tmp1, tmp2;
+		double lenLonger = getLenLonger(input1, input2);
+		double lenShorter = getLenShorter(input1, input2);
 
-		if (input1.size() > input2.size())
-		{
-			tmp1 = input1.size();
-			tmp2 = input2.size();
-		}
-		else
-		{
-			tmp1 = input2.size();
-			tmp2 = input1.size();
-		}
+		int lenDiff = lenLonger - lenShorter;
 
-		int lenDiff;
-		lenDiff = tmp1 - tmp2;
-
-		int result;
-		result = (1 - lenDiff / tmp2) * 60;
+		int result = (1 - lenDiff / lenShorter) * 60;
 
 		return result;
 
