@@ -16,5 +16,5 @@ TEST_F(SimilarityCheckerFixture, getAlphaPointMax)
 TEST_F(SimilarityCheckerFixture, getAlphaPointZero)
 {
 	int point = checker.getAlphaPoint("A", "BB");
-	EXPECT_EQ(0, point);
+	EXPECT_EQ(SimilarityChecker::MIN_POINT_ALPHA, point);
 }
