@@ -5,9 +5,14 @@ using namespace std;
 class SimilarityChecker
 {
 public:
+	bool isLengthSame(string input1, string input2)
+	{
+		return input1.size() == input2.size();
+	}
+
 	int getLengthPoint(string input1, string input2)
 	{
-		if (input1.size() == input2.size())
+		if (isLengthSame(input1, input2))
 			return MAX_POINT_LENGTH;
 		return 0;
 	}
