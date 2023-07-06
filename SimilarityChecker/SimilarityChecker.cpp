@@ -7,6 +7,11 @@ class SimilarityChecker
 public:
 	int getAlphaPoint(string str, string text)
 	{
-		return 40;
+		return MAX_POINT_ALPHA;
 	}
+
+	enum POINT
+	{
+		MAX_POINT_ALPHA = 40,
+	};
 };

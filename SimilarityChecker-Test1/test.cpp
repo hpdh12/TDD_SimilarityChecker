@@ -9,5 +9,6 @@ public:
 
 TEST_F(SimilarityCheckerFixture, getAlphaPointMax)
 {
-	EXPECT_EQ(40, checker.getAlphaPoint("ASD", "DSA"));
+	int point = checker.getAlphaPoint("ASD", "DSA");
+	EXPECT_EQ(SimilarityChecker::MAX_POINT_ALPHA, point);
 }
