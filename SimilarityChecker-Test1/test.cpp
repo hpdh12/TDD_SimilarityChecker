@@ -1,7 +1,13 @@
 #include "pch.h"
 #include "../SimilarityChecker/SimilarityChecker.cpp"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+class SimilarityCheckerFixture : public testing::Test
+{
+public:
+	SimilarityChecker checker;
+};
+
+TEST_F(SimilarityCheckerFixture, getAlphaPointMax)
+{
+	EXPECT_EQ(40, checker.getAlphaPoint("ASD", "DSA"));
 }
