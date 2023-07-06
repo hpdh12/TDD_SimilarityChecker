@@ -6,6 +6,11 @@ using namespace std;
 class SimilarityChecker
 {
 public:
+	int calcPointAlphabet(int cntSame, int cntTotal)
+	{
+		return (int)(MAX_POINT_ALPHA * ((double)cntSame / cntTotal));
+	}
+
 	int getAlphaPoint(string input1, string input2)
 	{
 		map<char, bool> mapInput1, mapTotal;
@@ -32,9 +37,9 @@ public:
 		if (cntSame == 0)
 			return MIN_POINT_ALPHA;
 
-		int cntTotal = mapTotal.size();
+		int cntTotal = (int)mapTotal.size();
 
-		return (int)(MAX_POINT_ALPHA * ((double)cntSame / cntTotal));
+		return calcPointAlphabet(cntSame, cntTotal);
 	}
 
 	enum POINT
