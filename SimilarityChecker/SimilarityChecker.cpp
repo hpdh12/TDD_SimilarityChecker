@@ -32,7 +32,9 @@ public:
 		if (cntSame == 0)
 			return MIN_POINT_ALPHA;
 
-		return MAX_POINT_ALPHA;
+		int cntTotal = mapTotal.size();
+
+		return (int)(MAX_POINT_ALPHA * ((double)cntSame / cntTotal));
 	}
 
 	enum POINT
