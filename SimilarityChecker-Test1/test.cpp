@@ -1,7 +1,11 @@
 #include "pch.h"
 #include "../SimilarityChecker/SimilarityChecker.cpp"
 
-TEST(TestCaseName, TestName) {
-  EXPECT_EQ(1, 1);
-  EXPECT_TRUE(true);
+TEST(SimilarityChecker, getLengthPointMaxWhenLengthIsSame) {
+	string input1 = "ABC";
+	string input2 = "BBQ";
+	SimilarityChecker checker;
+	
+	int point = checker.getLengthPoint(input1, input2);
+	EXPECT_EQ(60, point);
 }
