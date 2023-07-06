@@ -1,25 +1,29 @@
 #include "pch.h"
 #include "../SimilarityChecker/SimilarityChecker.cpp"
 
-TEST(SimilarityChecker, getLengthPointMaxWhenLengthIsSame) {
+class SimilarityCheckerFixture : public testing::Test
+{
+public:
+	SimilarityChecker checker;
+};
+
+TEST_F(SimilarityCheckerFixture, getLengthPointMaxWhenLengthIsSame) {
 	string input1 = "ABC";
 	string input2 = "BBQ";
-	SimilarityChecker checker;
 	
 	int point = checker.getLengthPoint(input1, input2);
 	EXPECT_EQ(SimilarityChecker::MAX_POINT_LENGTH, point);
 }
 
-TEST(SimilarityChecker, getLengthPointZeroWhenDifferentOverTwoTimes) {
+TEST_F(SimilarityCheckerFixture, getLengthPointZeroWhenDifferentOverTwoTimes) {
 	string input1 = "ABC";
 	string input2 = "BBQBBQ";
-	SimilarityChecker checker;
 
 	int point = checker.getLengthPoint(input1, input2);
 	EXPECT_EQ(0, point);
 }
 
-TEST(SimilarityChecker, getLengthPointPartial) {
+TEST_F(SimilarityCheckerFixture, getLengthPointPartial) {
 	vector<vector<string>> inputs = {
 		{ "ABC", "BBQY" },
 		{ "ABCDE", "BBQ" },
@@ -28,7 +32,6 @@ TEST(SimilarityChecker, getLengthPointPartial) {
 		40,
 		20,
 	};
-	SimilarityChecker checker;
 
 	for (int i = 0; i < inputs.size(); i++)
 	{
