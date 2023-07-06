@@ -20,16 +20,23 @@ TEST(SimilarityChecker, getLengthPointZeroWhenDifferentOverTwoTimes) {
 }
 
 TEST(SimilarityChecker, getLengthPointPartial) {
-	string input1 = "ABC";
-	string input2 = "BBQY";
+	vector<vector<string>> inputs = {
+		{ "ABC", "BBQY" },
+		{ "ABCDE", "BBQ" },
+	};
+	vector<int> expecteds = {
+		40,
+		20,
+	};
 	SimilarityChecker checker;
 
-	int point = checker.getLengthPoint(input1, input2);
-	EXPECT_EQ(40, point);
+	for (int i = 0; i < inputs.size(); i++)
+	{
+		string input1 = inputs[i][0];
+		string input2 = inputs[i][1];
+		int expected = expecteds[i];
 
-	input1 = "ABCDE";
-	input2 = "BBQ";
-
-	point = checker.getLengthPoint(input1, input2);
-	EXPECT_EQ(20, point);
+		int point = checker.getLengthPoint(input1, input2);
+		EXPECT_EQ(expected, point);
+	}
 }
