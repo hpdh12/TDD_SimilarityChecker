@@ -7,5 +7,5 @@ TEST(SimilarityChecker, getLengthPointMaxWhenLengthIsSame) {
 	SimilarityChecker checker;
 	
 	int point = checker.getLengthPoint(input1, input2);
-	EXPECT_EQ(60, point);
+	EXPECT_EQ(SimilarityChecker::MAX_POINT_LENGTH, point);
 }
