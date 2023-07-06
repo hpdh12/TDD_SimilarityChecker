@@ -18,3 +18,18 @@ TEST(SimilarityChecker, getLengthPointZeroWhenDifferentOverTwoTimes) {
 	int point = checker.getLengthPoint(input1, input2);
 	EXPECT_EQ(0, point);
 }
+
+TEST(SimilarityChecker, getLengthPointPartial) {
+	string input1 = "ABC";
+	string input2 = "BBQY";
+	SimilarityChecker checker;
+
+	int point = checker.getLengthPoint(input1, input2);
+	EXPECT_EQ(40, point);
+
+	input1 = "ABCDE";
+	input2 = "BBQ";
+
+	point = checker.getLengthPoint(input1, input2);
+	EXPECT_EQ(20, point);
+}
