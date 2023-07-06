@@ -9,3 +9,12 @@ TEST(SimilarityChecker, getLengthPointMaxWhenLengthIsSame) {
 	int point = checker.getLengthPoint(input1, input2);
 	EXPECT_EQ(SimilarityChecker::MAX_POINT_LENGTH, point);
 }
+
+TEST(SimilarityChecker, getLengthPointZeroWhenDifferentOverTwoTimes) {
+	string input1 = "ABC";
+	string input2 = "BBQBBQ";
+	SimilarityChecker checker;
+
+	int point = checker.getLengthPoint(input1, input2);
+	EXPECT_EQ(0, point);
+}

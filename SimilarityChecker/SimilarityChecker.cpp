@@ -7,7 +7,9 @@ class SimilarityChecker
 public:
 	int getLengthPoint(string input1, string input2)
 	{
-		return MAX_POINT_LENGTH;
+		if (input1.size() == input2.size())
+			return MAX_POINT_LENGTH;
+		return 0;
 	}
 
 	enum MAX_POINT {
